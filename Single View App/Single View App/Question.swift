@@ -17,11 +17,11 @@ enum ResponseType {
 struct Question {
     var text: String
     var type: ResponseType
-    var answer: Array<Answer>
+    var answers: Array<Answer>
     
     init(text: String, type: ResponseType, answer: Array<Answer>) {
         self.text = text
         self.type = type
-        self.answer = answer
+        self.answers = answer
     }
 }

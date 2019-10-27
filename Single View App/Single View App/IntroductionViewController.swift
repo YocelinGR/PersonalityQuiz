@@ -15,9 +15,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func returnToWelcome(segue: UIStoryboardSegue) {
-        
-    }
+    // @IBAction func returnToWelcome(segue: UIStoryboardSegue) {}
+    @IBAction func unwindToQuizIntroduction(segue: UIStoryboardSegue) {}
 
 }
 

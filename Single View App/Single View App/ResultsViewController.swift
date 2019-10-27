@@ -9,13 +9,28 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+    var responses: [Answer]!
+
+    @IBOutlet weak var resultsAnswerLabel: UILabel!
+    @IBOutlet weak var resultDefinitionLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        calculatePersonalityResult()
+        navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
     
+    func calculatePersonalityResult() {
+        var frequencyOfAnswers: [Type: Int] = [:]
+        let responsesType = responses.map { $0.type }
+        for response in responsesType {
+            frequencyOfAnswers[response] = (frequencyOfAnswers[response] ?? 0) + 1
+        }
+        let mostCommonAnswer = frequencyOfAnswers.sorted { $0.1 > $1.1}.first!.key
+        resultAnswerLabel.text = "You should visit \(mostCommonAnswer.rawValue)"
+        resultDefinitionLabel.text = mostCommonAnswer.definition
+    }
 
     /*
     // MARK: - Navigation
